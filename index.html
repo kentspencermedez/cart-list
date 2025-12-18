@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Cart List</h1>
+  <div class="stats">
+    <p>Total (<span id="items">0 items</span>)</p>
+    <h2 id="total">₱0.00</h2>
+    <button type="button" class="show-add-form-button">
+      <i class="fa fa-plus fa-lg"></i>
+    </button>
+  </div>
+  <div class="sort">
+    <label for="sort">Sort By</label>
+    <select name="sort" id="sort">
+      <option value="">Select an Option</option>
+      <option value="subtotal-low-high"> SubTotal: Low to High </option>
+      <option value="subtotal-high-low"> SubTotal: High to Low </option>
+      <option value="name-AZ"> Name: A to Z </option>
+      <option value="name-ZA"> Name: Z to A </option>
+    </select>
+  </div>
+  <ul id="cart-list"></ul>
+  <dialog>
+    <form id="add-form">
+      <h3>Add Item</h3>
+      <p>Required*</p>
+      <div class="form-group">
+        <label for="addName">Name*</label>
+        <input type="text" name="addName" id="addName" />
+      </div>
+      <div class="numbers">
+        <div class="form-group">
+          <label for="addPrice">Price*</label>
+          <input type="number" name="addPrice" id="addPrice" min="1" max="500000" />
+        </div>
+        <div class="form-group">
+          <label for="addQuantity">Quantity*</label>
+          <input type="number" name="addQuantity" id="addQuantity" min="1" max="999" />
+        </div>
+      </div>
+      <button type="submit" class="add-button">Save</button>
+    </form>
+  </dialog>
+  <dialog id="update-form">
+    <form>
+      <h3>Edit Item</h3>
+      <p>Required*</p>
+      <div class="form-group">
+        <label for="updateName">Name*</label>
+        <input type="text" name="updateName" id="updateName" />
+      </div>
+      <div class="numbers">
+        <div class="form-group">
+          <label for="updatePrice">Price*</label>
+          <input type="number" name="updatePrice" id="updatePrice" min="1" max="500000" />
+        </div>
+        <div class="form-group">
+          <label for="updateQuantity">Quantity*</label>
+          <input type="number" name="updateQuantity" id="updateQuantity" min="1" max="999" />
+        </div>
+      </div>
+      <div class="buttons">
+        <button type="button" class="delete-button">
+          <i class="fa-solid fa-trash fa-lg"></i>
+        </button>
+        <button type="submit" class="update-button">Save</button>
+      </div>
+    </form>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+
+</html>
