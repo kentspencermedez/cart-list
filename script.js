@@ -119,22 +119,35 @@ sortButton.onchange = function (event) {
 
   sortButton.options[index].selected = true;
 
-
   if (optionIndex === 1) {
     cart.sort(function (a, b) {
-      return a.subtotal - b.subtotal;
+      return a.id - b.id;
     });
 
     localStorage.setItem("cartList", JSON.stringify(cart));
     displayList(cart);
   } else if (optionIndex === 2) {
     cart.sort(function (a, b) {
-      return b.subtotal - a.subtotal;
+      return b.id - a.id;
     });
 
     localStorage.setItem("cartList", JSON.stringify(cart));
     displayList(cart);
   } else if (optionIndex === 3) {
+    cart.sort(function (a, b) {
+      return a.subtotal - b.subtotal;
+    });
+
+    localStorage.setItem("cartList", JSON.stringify(cart));
+    displayList(cart);
+  } else if (optionIndex === 4) {
+    cart.sort(function (a, b) {
+      return b.subtotal - a.subtotal;
+    });
+
+    localStorage.setItem("cartList", JSON.stringify(cart));
+    displayList(cart);
+  } else if (optionIndex === 5) {
     cart.sort(function (a, b) {
       const itemA = a.name.toLowerCase();
       const itemB = b.name.toLowerCase();
@@ -152,7 +165,7 @@ sortButton.onchange = function (event) {
 
     localStorage.setItem("cartList", JSON.stringify(cart));
     displayList(cart);
-  } else if (optionIndex === 4) {
+  } else if (optionIndex === 6) {
     cart.sort(function (a, b) {
       const itemA = a.name.toLowerCase();
       const itemB = b.name.toLowerCase();
