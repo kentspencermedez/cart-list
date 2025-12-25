@@ -107,35 +107,34 @@ function showUpdateForm(id) {
 
 const sortButton = document.querySelector("#sort");
 
-let i = localStorage.getItem("index") || 0;
-sortButton.options[i].selected = true;
+let index = localStorage.getItem("index") || 0;
+sortButton.options[index].selected = true;
 
 sortButton.onchange = function (event) {
   const selection = event.target.value;
+  const optionIndex = event.target.selectedIndex;
+  console.log(optionIndex);
+  index = optionIndex;
+  localStorage.setItem("index", index);
 
-  const ind = event.target.selectedIndex;
-  console.log(ind);
-  i = ind;
-  localStorage.setItem("index", i);
-
-  sortButton.options[i].selected = true;
+  sortButton.options[index].selected = true;
 
 
-  if (selection === "subtotal-low-high") {
+  if (optionIndex === 1) {
     cart.sort(function (a, b) {
       return a.subtotal - b.subtotal;
     });
 
     localStorage.setItem("cartList", JSON.stringify(cart));
     displayList(cart);
-  } else if (selection === "subtotal-high-low") {
+  } else if (optionIndex === 2) {
     cart.sort(function (a, b) {
       return b.subtotal - a.subtotal;
     });
 
     localStorage.setItem("cartList", JSON.stringify(cart));
     displayList(cart);
-  } else if (selection === "name-AZ") {
+  } else if (optionIndex === 3) {
     cart.sort(function (a, b) {
       const itemA = a.name.toLowerCase();
       const itemB = b.name.toLowerCase();
@@ -153,7 +152,7 @@ sortButton.onchange = function (event) {
 
     localStorage.setItem("cartList", JSON.stringify(cart));
     displayList(cart);
-  } else if (selection === "name-ZA") {
+  } else if (optionIndex === 4) {
     cart.sort(function (a, b) {
       const itemA = a.name.toLowerCase();
       const itemB = b.name.toLowerCase();
