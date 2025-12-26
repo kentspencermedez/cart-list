@@ -34,7 +34,7 @@ function displayList(list) {
     itemQuantity.classList.add("item-quantity");
     itemTotal.classList.add("item-total");
 
-    img.src = "./images/label.png";
+    img.src = "./images/price-tag.png";
     itemName.textContent = item.name;
     itemPrice.textContent = `Price: ${Number(item.price).toLocaleString(
       "en-PH",
